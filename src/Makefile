@@ -1,3 +1,10 @@
+#####################################################################
+# File: Makefile                               Part of Tutorial MUD #
+#                                                                   #
+# Created by Joachim Pileborg <tm@pileborg.org>                     #
+# This file is in the public domain.                                #
+#####################################################################
+
 TARGET   = tutorialmud
 
 OBJFILES = main.o
