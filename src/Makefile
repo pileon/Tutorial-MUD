@@ -1,2 +1,4 @@
-tutorialmud: main.o
-	g++ main.o -o tutorialmud
+OBJFILES = main.o
+
+tutorialmud: $(OBJFILES)
+	g++ $(OBJFILES) -o tutorialmud
