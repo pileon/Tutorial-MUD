@@ -8,6 +8,12 @@ LDFLAGS  = -g
 LD       = g++
 CXX      = g++
 
+.PHONY: default
+default: all
+
+.PHONY: all
+all: $(TARGET)
+
 $(TARGET): $(OBJFILES)
 	$(LD) $(LDFLAGS) $(OBJFILES) -o $(TARGET)
 
