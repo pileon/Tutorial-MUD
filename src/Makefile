@@ -10,3 +10,8 @@ CXX      = g++
 
 $(TARGET): $(OBJFILES)
 	$(LD) $(LDFLAGS) $(OBJFILES) -o $(TARGET)
+
+.PHONY: clean
+clean:
+	-rm -f $(OBJFILES)
+	-rm -f $(TARGET)
