@@ -2,8 +2,8 @@ TARGET   = tutorialmud
 
 OBJFILES = main.o
 
-CXXFLAGS =
-LDFLAGS  =
+CXXFLAGS = -Wall -Wextra -std=c++0x -pipe -g
+LDFLAGS  = -g
 
 LD       = g++
 CXX      = g++
