@@ -1,4 +1,10 @@
 OBJFILES = main.o
 
+CXXFLAGS =
+LDFLAGS  =
+
+LD       = g++
+CXX      = g++
+
 tutorialmud: $(OBJFILES)
-	g++ $(OBJFILES) -o tutorialmud
+	$(LD) $(LDFLAGS) $(OBJFILES) -o tutorialmud
