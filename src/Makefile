@@ -28,3 +28,8 @@ $(TARGET): $(OBJFILES)
 clean:
 	-rm -f $(OBJFILES)
 	-rm -f $(TARGET)
+
+#####################################################################
+# Object file targets
+
+main.o: main.cpp tm.h
