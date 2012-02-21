@@ -7,7 +7,7 @@
 
 TARGET   = tutorialmud
 
-OBJFILES = main.o
+OBJFILES = main.o logger.o
 
 CXXFLAGS = -Wall -Wextra -std=c++0x -pipe -g
 LDFLAGS  = -g
