@@ -46,14 +46,17 @@ namespace
 void logger::init()
 {
 	// Use std::clog as output
+	logger_helper_ptr.reset(new logger_helper());
 }
 
 void logger::init(const std::string &filename)
 {
 	// Open a file and use that for output
+	logger_helper_ptr.reset(new logger_helper(filename));
 }
 
 void logger::init(std::ostream &file)
 {
 	// Use the provided file as output
+	logger_helper_ptr.reset(new logger_helper(file));
 }
