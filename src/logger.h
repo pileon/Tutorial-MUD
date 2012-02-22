@@ -36,6 +36,7 @@ namespace logger
 	void init(std::ostream &file);
 
 	std::ostream &get_logger();
+	const std::string get_date_time();
 }
 
 inline std::ostream & operator<<(std::ostream &os,
@@ -45,7 +46,8 @@ inline std::ostream & operator<<(std::ostream &os,
 	return os;
 }
 
-#define LOG(cat, str) \
-	logger::get_logger() << logger::categories::cat << ' ' << str << '\n'
+#define LOG(cat, str)														\
+	logger::get_logger() << logger::get_date_time() << " :: " 				\
+						 << logger::categories::cat << ' ' << str << '\n'
 
 #endif // __LOGGER_H__

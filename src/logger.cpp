@@ -10,6 +10,8 @@
 
 #include <memory>
 #include <fstream>
+#include <ctime>
+#include <cstring>
 
 namespace
 {
@@ -64,4 +66,15 @@ void logger::init(std::ostream &file)
 std::ostream &logger::get_logger()
 {
 	return logger_helper_ptr->get();
+}
+
+const std::string logger::get_date_time()
+{
+	std::time_t now = std::time(nullptr);
+	char *now_s = asctime(localtime(&now));
+
+	// asctime returns with a newline, remove it
+	now_s[strlen(now_s) - 1] = '\0';
+
+	return now_s;
 }
