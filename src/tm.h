@@ -7,4 +7,7 @@
 * This file is in the public domain.                                *
 ********************************************************************/
 
+#include <iostream>
+#include <string>
+
 #endif // __TM_H__
