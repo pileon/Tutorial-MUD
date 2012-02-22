@@ -45,4 +45,7 @@ inline std::ostream & operator<<(std::ostream &os,
 	return os;
 }
 
+#define LOG(cat, str) \
+	logger::get_logger() << logger::categories::cat << ' ' << str << '\n'
+
 #endif // __LOGGER_H__
