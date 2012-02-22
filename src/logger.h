@@ -9,11 +9,40 @@
 
 namespace logger
 {
+	namespace categories
+	{
+		class category
+		{
+		public:
+			category(const std::string &text)
+				: m_text(text)
+				{ }
+ 
+			const std::string &get() const
+				{ return m_text; }
+
+		private:
+			std::string m_text;
+		};
+
+		const category debug{"[DEBUG]"};
+		const category info {"[INFO ]"};
+		const category error{"[ERROR]"};
+		const category net  {"[NET  ]"};
+	}
+
 	void init();
 	void init(const std::string &filename);
 	void init(std::ostream &file);
 
 	std::ostream &get_logger();
+}
+
+inline std::ostream & operator<<(std::ostream &os,
+	const logger::categories::category 	&cat)
+{
+	os << cat.get();
+	return os;
 }
 
 #endif // __LOGGER_H__
