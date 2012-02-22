@@ -12,6 +12,8 @@ namespace logger
 	void init();
 	void init(const std::string &filename);
 	void init(std::ostream &file);
+
+	std::ostream &get_logger();
 }
 
 #endif // __LOGGER_H__

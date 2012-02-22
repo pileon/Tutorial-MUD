@@ -60,3 +60,8 @@ void logger::init(std::ostream &file)
 	// Use the provided file as output
 	logger_helper_ptr.reset(new logger_helper(file));
 }
+
+std::ostream &logger::get_logger()
+{
+	return logger_helper_ptr->get();
+}

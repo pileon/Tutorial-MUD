@@ -9,4 +9,6 @@
 
 int main(int argc, char *argv[])
 {
+	logger::init();  // Initialize logger using std::clog
+	logger::get_logger() << "Hello world!\n";
 }

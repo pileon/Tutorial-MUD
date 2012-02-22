@@ -10,4 +10,6 @@
 #include <iostream>
 #include <string>
 
+#include "logger.h"
+
 #endif // __TM_H__
