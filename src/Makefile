@@ -7,7 +7,7 @@
 
 TARGET   = tutorialmud
 
-OBJFILES = main.o logger.o
+OBJFILES = main.o logger.o config.o
 
 CXXFLAGS = -Wall -Wextra -std=c++0x -pipe -g
 LDFLAGS  = -g
@@ -35,3 +35,5 @@ clean:
 main.o: main.cpp tm.h logger.h
 
 logger.o: logger.cpp tm.h logger.h
+
+config.o: config.cpp tm.h config.h
