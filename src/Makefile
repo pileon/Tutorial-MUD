@@ -32,7 +32,7 @@ clean:
 #####################################################################
 # Object file targets
 
-main.o: main.cpp tm.h logger.h
+main.o: main.cpp tm.h logger.h config.h
 
 logger.o: logger.cpp tm.h logger.h
 
