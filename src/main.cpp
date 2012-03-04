@@ -12,7 +12,10 @@ int main(int argc, char *argv[])
 {
 	config::parse_arguments(argc, argv);
 
-	logger::init();  // Initialize logger using std::clog
+	if (config::log_file_name.empty())
+		logger::init();  // Use std::clog
+	else
+		logger::init(config::log_file_name);  // Use the named file
 
 	LOG(info, "Hello world!");
 }

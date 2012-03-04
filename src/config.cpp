@@ -22,14 +22,20 @@ namespace
 	}
 }
 
+std::string config::log_file_name;
+
 void config::parse_arguments(int argc, char *argv[])
 {
 	int c;  // The returned option from getopt
 
-	while ((c = getopt(argc, argv, "hv")) != -1)
+	while ((c = getopt(argc, argv, "l:hv")) != -1)
 	{
 		switch (c)
 		{
+		case 'l':
+			log_file_name = optarg;
+			break;
+
 		case 'h':
 			print_help(argv[0]);
 			std::exit(0);

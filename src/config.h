@@ -9,6 +9,9 @@
 
 namespace config
 {
+	// The name of the file where to put logging
+	extern std::string log_file_name;
+
 	void parse_arguments(int argc, char *argv[]);
 }
 
