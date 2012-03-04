@@ -10,6 +10,18 @@
 
 #include <unistd.h>
 
+namespace
+{
+	void print_help(const std::string &argv0)
+	{
+		std::cout << "Usage: " << argv0 << " [-l <filename>] [-h] [-v]\n";
+		std::cout << "Where:\n";
+		std::cout << "    -l <filename>    Log to named file\n";
+		std::cout << "    -h               Print this help message and exit\n";
+		std::cout << "    -v               Print version number and exit\n";
+	}
+}
+
 void config::parse_arguments(int argc, char *argv[])
 {
 	int c;  // The returned option from getopt
@@ -19,7 +31,7 @@ void config::parse_arguments(int argc, char *argv[])
 		switch (c)
 		{
 		case 'h':
-			std::cout << "Print some help\n";
+			print_help(argv[0]);
 			std::exit(0);
 			break;
 		case 'v':
@@ -28,7 +40,7 @@ void config::parse_arguments(int argc, char *argv[])
 			break;
 
 		case '?':
-			std::cout << "Print some help\n";
+			print_help(argv[0]);
 			std::exit(1);
 			break;
 
