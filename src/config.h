@@ -9,7 +9,7 @@
 
 namespace config
 {
-	void parse_argument(int argc, char *argv[]);
+	void parse_arguments(int argc, char *argv[]);
 }
 
 #endif // __CONFIG_H__
