@@ -12,4 +12,6 @@
 
 #include "logger.h"
 
+void tm_shutdown();
+
 #endif // __TM_H__
