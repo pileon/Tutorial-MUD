@@ -10,9 +10,23 @@
 
 #include <thread>
 #include <chrono>
+#include <signal.h>
 
 namespace
 {
+	void handle_sigint(int)
+	{
+		LOG(info, "SIGINT, SIGHUP or SIGTERM received");
+		tm_shutdown();
+	}
+
+	void init_signals()
+	{
+		signal(SIGINT, handle_sigint);
+		signal(SIGHUP, handle_sigint);
+		signal(SIGTERM, handle_sigint);
+	}
+
 	bool keep_running = true;
 
 	void mainloop()
@@ -28,7 +42,7 @@ namespace
 
 void tm_shutdown()
 {
-	LOG(info, "Shutdown down");
+	LOG(info, "Shutting down");
 	keep_running = false;
 }
 
@@ -40,6 +54,8 @@ int main(int argc, char *argv[])
 		logger::init();  // Use std::clog
 	else
 		logger::init(config::log_file_name);  // Use the named file
+
+	init_signals();
 
 	LOG(info, "Hello world!");
 
