@@ -1,2 +1,3 @@
 *.o
 src/tutorialmud
+src/net/net.a
