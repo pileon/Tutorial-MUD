@@ -7,7 +7,7 @@
 
 TARGET   = net.a
 
-OBJFILES = 
+OBJFILES = address.o
 
 CXXFLAGS = -Wall -Wextra -std=c++0x -pipe -g
 
@@ -30,3 +30,5 @@ clean:
 
 #####################################################################
 # Object file targets
+
+address.o: address.cpp address.h
