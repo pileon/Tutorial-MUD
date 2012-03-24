@@ -5,18 +5,13 @@
 # This file is in the public domain.                                #
 #####################################################################
 
-TARGET   = tutorialmud
+TARGET   = net.a
 
-OBJFILES = main.o logger.o config.o
+OBJFILES = 
 
 CXXFLAGS = -Wall -Wextra -std=c++0x -pipe -g
-LDFLAGS  = -g
 
-LD       = g++
 CXX      = g++
-
-NETLIB   = net/net.a
-LIBS     = $(NETLIB)
 
 .PHONY: default
 default: all
@@ -24,12 +19,9 @@ default: all
 .PHONY: all
 all: $(TARGET)
 
-$(TARGET): $(OBJFILES) $(NETLIB)
-	$(LD) $(LDFLAGS) $(OBJFILES) -o $(TARGET) $(LIBS)
-
-.PHONY: $(NETLIB)
-$(NETLIB):
-	$(MAKE) -C net
+$(TARGET): $(OBJFILES)
+	ar crv $(TARGET) $(OBJFILES)
+	ranlib $(TARGET)
 
 .PHONY: clean
 clean:
@@ -38,9 +30,3 @@ clean:
 
 #####################################################################
 # Object file targets
-
-main.o: main.cpp tm.h logger.h config.h
-
-logger.o: logger.cpp tm.h logger.h
-
-config.o: config.cpp tm.h config.h
